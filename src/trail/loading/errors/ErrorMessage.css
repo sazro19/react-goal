@@ -1,0 +1,23 @@
+.error-container {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.error-text {
+    color: #dc2626;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.error-button {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    background-color: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+.error-button:hover {
+    background-color: #1d4ed8;
+}
