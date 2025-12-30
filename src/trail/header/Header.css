@@ -1,3 +1,4 @@
+/* Base reset */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,16 +6,16 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
+/* Shared layout styles */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 12px 24px;
-    background-color: #ffffff;
-    border-bottom: 1px solid #e5e5e5;
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
 }
 
 .left-section {
@@ -22,12 +23,12 @@
     align-items: center;
     gap: 8px;
     font-weight: 600;
-    color: #333;
+    transition: color 0.2s;
 }
 
 .left-section i {
     font-size: 1.2rem;
-    color: #555;
+    transition: color 0.2s;
 }
 
 .nav {
@@ -38,7 +39,6 @@
 
 .nav a {
     text-decoration: none;
-    color: #333;
     font-weight: 500;
     transition: color 0.2s ease;
 }
@@ -51,15 +51,61 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    color: #333;
+    transition: color 0.2s;
 }
 
 .right-section i {
     font-size: 1.1rem;
-    color: #555;
+    transition: color 0.2s;
 }
 
 .resize {
     width: 40px;
     height: auto;
+}
+
+/* 🌞 Light mode */
+body.light .header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+    color: #333;
+}
+
+body.light .left-section,
+body.light .right-section {
+    color: #333;
+}
+
+body.light .left-section i,
+body.light .right-section i {
+    color: #555;
+}
+
+body.light .nav a {
+    color: #333;
+}
+
+/* 🌙 Dark mode */
+body.dark .header {
+    background-color: #1e1e1e;
+    border-bottom: 1px solid #444;
+    color: #f5f5f5;
+}
+
+body.dark .left-section,
+body.dark .right-section {
+    color: #f5f5f5;
+}
+
+body.dark .left-section i,
+body.dark .right-section i {
+    color: #bbb;
+}
+
+body.dark .nav a {
+    color: #f5f5f5;
+}
+
+body.dark .nav a:hover {
+    color: #66aaff;
 }

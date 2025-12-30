@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./header/Header.jsx";
 import './Trail.css';
 import LoadingSpinner from "./loading/spinner/LoadingSpinner.jsx";
+import LoginPage from "./auth/LoginPage.jsx";
 
 // Lazy-load ProductList
 const ProductList = React.lazy(() => import("./product/ProductList.jsx"));
@@ -14,6 +15,7 @@ export default function Trail() {
             <Suspense fallback={<LoadingSpinner />}>
                 <Routes>
                     <Route path="/" element={<ProductList />} />
+                    <Route path="/login" element={<LoginPage />} />
                 </Routes>
             </Suspense>
         </BrowserRouter>
