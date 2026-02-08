@@ -1,16 +1,16 @@
 import React, {Suspense} from "react";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Header from "./header/Header.jsx";
+import Header from "./components/header/Header.jsx";
 import './Trail.css';
-import LoadingSpinner from "./loading/spinner/LoadingSpinner.jsx";
+import LoadingSpinner from "./components/spinner/LoadingSpinner.jsx";
 
-const ProductList = React.lazy(() => import("./product/ProductList.jsx"));
-const Register = React.lazy(() => import("./auth/Register.jsx"));
-const Login = React.lazy(() => import("./auth/Login.jsx"));
-const Logout = React.lazy(() => import("./auth/Logout.jsx"));
-const AddProduct = React.lazy(() => import("./product/AddProduct.jsx"));
-const Favourites = React.lazy(() => import("./product/favourite/Favourites.jsx"));
-const AboutMe = React.lazy(() => import("./about/AboutMe.jsx"));
+const PostList = React.lazy(() => import("./components/post/list/PostList.jsx"));
+const Register = React.lazy(() => import("./components/auth/Register.jsx"));
+const Login = React.lazy(() => import("./components/auth/Login.jsx"));
+const Logout = React.lazy(() => import("./components/auth/Logout.jsx"));
+const AddPost = React.lazy(() => import("./components/post/add/AddPost.jsx"));
+const Favourites = React.lazy(() => import("./components/post/favourite/Favourites.jsx"));
+const AboutMe = React.lazy(() => import("./components/about/AboutMe.jsx"));
 
 export default function Trail() {
     return (
@@ -18,11 +18,11 @@ export default function Trail() {
             <Header/>
             <Suspense fallback={<LoadingSpinner/>}>
                 <Routes>
-                    <Route path="/" element={<ProductList/>}/>
+                    <Route path="/" element={<PostList/>}/>
                     <Route path="/register" element={<Register/>}/>
                     <Route path="/login" element={<Login/>}/>
                     <Route path="/logout" element={<Logout/>}/>
-                    <Route path="/addpost" element={<AddProduct/>}/>
+                    <Route path="/addpost" element={<AddPost/>}/>
                     <Route path="/favourites" element={<Favourites/>}/>
                     <Route path="/about-me" element={<AboutMe/>}/>
                 </Routes>
