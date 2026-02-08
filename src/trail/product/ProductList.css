@@ -6,6 +6,23 @@
     justify-items: center;
 }
 
+.loader-ref {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.loader-ref .spinner-container {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media (max-width: 600px) {
     .product-list {
         grid-template-columns: 1fr;

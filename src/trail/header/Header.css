@@ -1,4 +1,3 @@
-/* Base reset */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,7 +5,6 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
-/* Shared layout styles */
 .header {
     display: flex;
     justify-content: space-between;
@@ -34,6 +32,7 @@
 .nav {
     display: flex;
     margin-left: 15px;
+    margin-right: 15px;
     gap: 24px;
 }
 
@@ -54,6 +53,12 @@
     transition: color 0.2s;
 }
 
+.theme-section {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
 .right-section i {
     font-size: 1.1rem;
     transition: color 0.2s;
@@ -64,7 +69,6 @@
     height: auto;
 }
 
-/* 🌞 Light mode */
 body.light .header {
     background-color: #ffffff;
     border-bottom: 1px solid #e5e5e5;
@@ -85,7 +89,6 @@ body.light .nav a {
     color: #333;
 }
 
-/* 🌙 Dark mode */
 body.dark .header {
     background-color: #1e1e1e;
     border-bottom: 1px solid #444;

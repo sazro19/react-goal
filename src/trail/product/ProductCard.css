@@ -1,28 +1,33 @@
 .product-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
     border-radius: 12px;
     padding: 16px;
     margin-bottom: 12px;
     transition: transform 0.2s, box-shadow 0.2s;
     cursor: pointer;
+    min-height: 260px;
+    min-width: 260px;
 }
 
 body.light .product-card {
     background: #fff;
     border: 1px solid #ddd;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     color: #000;
 }
 
 body.dark .product-card {
     background: #1e1e1e;
     border: 1px solid #444;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
     color: #f5f5f5;
 }
 
 .product-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .product-card-header {
@@ -45,11 +50,11 @@ body.dark .product-card-title {
 
 .product-card-text {
     font-size: 0.95rem;
-    color: #555;
     margin-bottom: 12px;
 }
 
 .product-card-stats {
+    margin-top: auto;
     display: flex;
     gap: 16px;
     font-size: 0.9rem;
@@ -72,4 +77,40 @@ body.dark .product-card-title {
 
 .product-card-stats .views {
     color: #555;
+}
+
+.product-card-actions {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    gap: 8px;
+}
+
+.action-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.action-btn:hover {
+    transform: scale(1.2);
+}
+
+.action-btn.favorite {
+    color: gray;
+}
+
+.action-btn.favorite.active {
+    color: #e0245e;
+}
+
+.action-btn.edit {
+    color: #0a74da;
+}
+
+.action-btn.delete {
+    color: #da0a0a;
 }

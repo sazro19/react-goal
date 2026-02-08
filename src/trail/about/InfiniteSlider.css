@@ -1,0 +1,38 @@
+.slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.slider-content {
+    text-align: center;
+    max-width: 80%;
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    color: inherit;
+    padding: 10px;
+}
+
+.slider-arrow.left {
+    left: 10px;
+}
+
+.slider-arrow.right {
+    right: 10px;
+}
+
+.slider-arrow:hover {
+    opacity: 0.6;
+}
