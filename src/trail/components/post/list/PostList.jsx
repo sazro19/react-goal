@@ -40,7 +40,7 @@ const PostList = () => {
     }, [searchTerm, setSearchParams, sortBy, sortOrder]);
 
     useInfiniteScroll(loaderRef, loading, () => {
-        setPage(prev => prev + 1);
+        if (hasMore) setPage(prev => prev + 1);
     });
 
     if (error) return <ErrorMessage message={error} onRetry={retry}/>;

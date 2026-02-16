@@ -1,4 +1,4 @@
-import React, {forwardRef, useContext, useLayoutEffect, useRef, useState} from "react";
+import React, {forwardRef, useContext, useRef, useState} from "react";
 import "./css/PostCard.css";
 import {AuthContext} from "../../auth/js/AuthContext.js";
 import useEditPost from "../../../hooks/useEditPost.js";
@@ -24,18 +24,12 @@ const PostCard = forwardRef(
         const [isEditing, setIsEditing] = useState(false);
         const [editTitle, setEditTitle] = useState(title);
         const [editText, setEditText] = useState(text);
+        const [editSave, setEditSave] = useState(false);
 
         const pRef = useRef(null);
-        const [size, setSize] = useState({width: 0, height: 0});
 
         const {editPost, loading: editLoading, error: editError} =
             useEditPost();
-
-        useLayoutEffect(() => {
-            if (!pRef.current) return;
-            const rect = pRef.current.getBoundingClientRect();
-            setSize({width: rect.width, height: rect.height});
-        }, [text]);
 
         const handleFavorite = onToggleFavorite ? () => {
             onToggleFavorite(id);
@@ -44,9 +38,11 @@ const PostCard = forwardRef(
         const handleEdit = onEdit ? async () => {
             if (!isEditing) {
                 setIsEditing(true);
+                setEditSave(true);
                 return;
             }
 
+            setEditSave(false);
             const updated = await editPost(id, editTitle, editText);
 
             if (updated) {
@@ -66,6 +62,7 @@ const PostCard = forwardRef(
                 onEdit={handleEdit}
                 onDelete={handleDelete}
                 editLoading={editLoading}
+                editSave={editSave}
             />
         ) : null;
 
@@ -84,14 +81,9 @@ const PostCard = forwardRef(
 
                 {isEditing ? (
                     <textarea
-                        className="post-card-text"
+                        className="post-card-text post-card-textarea"
                         value={editText}
                         onChange={(e) => setEditText(e.target.value)}
-                        style={{
-                            width: size.width,
-                            height: size.height,
-                            resize: "none"
-                        }}
                     />
                 ) : (
                     <p ref={pRef} className="post-card-text">

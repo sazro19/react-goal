@@ -5,8 +5,10 @@ export default function PostCardActions({
                                             onFavorite,
                                             onEdit,
                                             onDelete,
-                                            editLoading
+                                            editLoading,
+                                            editSave
                                         }) {
+    const editStyle = "action-btn edit" + (editSave ? " edit-save" : "");
     return (
         <div className="post-card-actions">
             {onFavorite && (
@@ -20,7 +22,7 @@ export default function PostCardActions({
 
             {onEdit && (
                 <button
-                    className="action-btn edit"
+                    className={editStyle}
                     onClick={onEdit}
                     disabled={editLoading}
                 >
